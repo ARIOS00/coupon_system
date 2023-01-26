@@ -5,7 +5,10 @@ package com.imooc.coupon.entity;
 import com.imooc.coupon.constant.CouponCategory;
 import com.imooc.coupon.constant.DistributeTarget;
 import com.imooc.coupon.constant.ProductLine;
-import com.imooc.coupon.vo.CommonResponse;
+import com.imooc.coupon.converter.CouponCategoryConverter;
+import com.imooc.coupon.converter.DistributeTargetConverter;
+import com.imooc.coupon.converter.ProductLineConverter;
+import com.imooc.coupon.converter.RuleConverter;
 import com.imooc.coupon.vo.TemplateRule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,9 +49,11 @@ public class CouponTemplate implements Serializable {
     private String desc;
 
     @Column(name = "category", nullable = false)
+    @Convert(converter = CouponCategoryConverter.class)
     private CouponCategory category;
 
     @Column(name = "product_line", nullable = false)
+    @Convert(converter = ProductLineConverter.class)
     private ProductLine productLine;
 
     @Column(name = "coupon_count", nullable = false)
@@ -65,9 +70,11 @@ public class CouponTemplate implements Serializable {
     private String key;
     // target users
     @Column(name = "target", nullable = false)
+    @Convert(converter = DistributeTargetConverter.class)
     private DistributeTarget target;
 
     @Column(name = "rule", nullable = false)
+    @Convert(converter = RuleConverter.class)
     private TemplateRule rule;
 
     public CouponTemplate(String name, String logo, String desc, String category,

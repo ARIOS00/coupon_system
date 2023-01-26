@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TemplateRule implements Serializable {
+public class TemplateRule {
     private Expiration expiration;
     private Discount discount;
     // the maximum coupons can one user get
