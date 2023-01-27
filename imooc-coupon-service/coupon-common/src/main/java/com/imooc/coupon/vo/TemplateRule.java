@@ -68,4 +68,8 @@ public class TemplateRule {
             return StringUtils.isNotEmpty(province) && StringUtils.isNotEmpty(city) && StringUtils.isNotEmpty(goodsType);
         }
     }
+
+    public boolean validate() {
+        return expiration.validate() && discount.validate() && limitation > 0 && usage.validate() && StringUtils.isNotEmpty(weight);
+    }
 }
